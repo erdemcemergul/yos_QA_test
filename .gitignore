@@ -1,0 +1,6 @@
+/target/
+/.idea/
+/yos_project.iml
+
+/src/test/java/com/yos/runners/
+/src/test/java/com/yos/basePages/

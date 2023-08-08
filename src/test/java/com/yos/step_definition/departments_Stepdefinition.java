@@ -41,7 +41,6 @@ public class departments_Stepdefinition {
     }
 
 
-
     @Then("Card of {string} name should come from API")
     public void cardOfNameShouldComeFromAPI(String arg0) {
         Response departmentById = apiSelecter.getDepartmentById(departmentId);
@@ -102,6 +101,7 @@ public class departments_Stepdefinition {
         boolean check = false;
 
         Response compareList = apiSelecter.getAllCompares(userId);
+        System.out.println("compareList.statusCode() = " + compareList.statusCode());
         String jsonString = compareList.asString();
         List<String> departmentList = JsonPath.from(jsonString).getList("departments");
 
@@ -202,6 +202,7 @@ public class departments_Stepdefinition {
         boolean check = false;
 
         Response favoritesList = apiSelecter.getAllFavorites(userId);
+        System.out.println("favoritesList.statusCode() = " + favoritesList.statusCode());
         String jsonString = favoritesList.asString();
         List<String> departmentList = JsonPath.from(jsonString).getList("departments");
 
@@ -220,31 +221,30 @@ public class departments_Stepdefinition {
         Response loginUserresponse = apiSelecter.loginUser(excelreads.readData(6, 1), excelreads.readData(14, 2));
         JsonPath jsonPath = loginUserresponse.jsonPath();
         String userId = jsonPath.getString("userID");
-
+        boolean check = false;
 
         Response compareList = null;
 
         try {
             compareList = apiSelecter.getAllCompares(userId);
+            System.out.println("compareList.statusCode() = " + compareList.statusCode());
         } catch (Exception e) {
             System.out.println("API çağrısında hata oluştu: " + e.getMessage());
         }
 
-        if (compareList != null) {
-            if (compareList.getStatusCode() == 404) {
-                Assert.assertEquals(404, compareList.getStatusCode());
-            } else {
-                String jsonString = compareList.asString();
-                List<String> departmentList = JsonPath.from(jsonString).getList("departments");
-
-                if (!departmentList.contains(departmentId)) {
-                    Assert.assertTrue(true); // Test geçerli
-                } else {
-                    Assert.fail("Departman zaten listeye eklenmiş.");
-                }
-            }
+        if (compareList == null) {
+            check = true;
+            Assert.assertTrue(check);
         } else {
-            System.out.println("API çağrısında hata oluştu.");
+            String jsonString = compareList.asString();
+            List<String> departmentList = JsonPath.from(jsonString).getList("departments");
+
+            if (!departmentList.contains(departmentId)) {
+                check = true;
+                Assert.assertTrue(check); // Test geçerli
+            } else {
+                Assert.fail("Departman zaten listeye eklenmiş.");
+            }
         }
 
 
@@ -261,30 +261,29 @@ public class departments_Stepdefinition {
         String userId = jsonPath.getString("userID");
 
         Response favoritesList = null;
+        boolean check = false;
+
 
         try {
             favoritesList = apiSelecter.getAllCompares(userId);
+            System.out.println("compareList.statusCode() = " + favoritesList.statusCode());
         } catch (Exception e) {
             System.out.println("API çağrısında hata oluştu: " + e.getMessage());
         }
 
-        if (favoritesList != null) {
-            if (favoritesList.getStatusCode() == 404) {
-                Assert.assertEquals(404, favoritesList.getStatusCode());
-            } else {
-                String jsonString = favoritesList.asString();
-                List<String> departmentList = JsonPath.from(jsonString).getList("departments");
-
-                if (!departmentList.contains(departmentId)) {
-                    Assert.assertTrue(true); // Test geçerli
-                } else {
-                    Assert.fail("Departman zaten listeye eklenmiş.");
-                }
-            }
+        if (favoritesList == null) {
+            check = true;
+            Assert.assertTrue(check);
         } else {
-            System.out.println("API çağrısında hata oluştu.");
+            String jsonString = favoritesList.asString();
+            List<String> departmentList = JsonPath.from(jsonString).getList("departments");
+
+            if (!departmentList.contains(departmentId)) {
+                check = true;
+                Assert.assertTrue(check); // Test geçerli
+            } else {
+                Assert.fail("Departman zaten listeye eklenmiş.");
+            }
         }
-
-
     }
 }

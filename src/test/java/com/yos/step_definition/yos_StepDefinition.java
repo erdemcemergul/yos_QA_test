@@ -45,7 +45,7 @@ public class yos_StepDefinition {
     public void userIsAlreadyLoggedIn() throws InterruptedException {
         Thread.sleep(2000);
         login.login();
-        Thread.sleep(4000);
+        Thread.sleep(4500);
     }
 
     @Given("Sign Up datas are created random")

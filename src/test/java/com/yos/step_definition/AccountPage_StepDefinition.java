@@ -95,7 +95,7 @@ public class AccountPage_StepDefinition {
                 accountPage.currentPasswordField.sendKeys(Keys.chord(currentPassword));
                 break;
             case "New Password":
-                accountPage.changePasswordButton.sendKeys(Keys.chord(fakePass));
+                accountPage.newPasswordField.sendKeys(Keys.chord(fakePass));
                 break;
             case "ReNew Password":
                 accountPage.confirmPasswordField.sendKeys(Keys.chord(fakePass));

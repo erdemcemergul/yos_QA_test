@@ -2,15 +2,12 @@ Feature: Sign In
 
   Background: User is log on the home page
 
-
     Given User is on the app
     Given User click "Sign In" button
-
 
   Scenario: Verify that the user can go to Sign Up page click the Sıgn Up
     When User can switch to Sign Up page
     Then User should go to "Sign Up" page
-
 
   Scenario Outline: Verify that the user can see Sign In messages
 
@@ -29,7 +26,6 @@ Feature: Sign In
       | password | lack a upper case   |  | Password bir büyük harf içermelidir     |
       | password | lack a special char |  | Password bir özel karakter içermelidir  |
       | password | more 20 chars       |  | password en fazla 20 karakter olmalıdır |
-
 
   Scenario: Verify that the user can Log In
     When User should see the input entity is "ok" on "password"

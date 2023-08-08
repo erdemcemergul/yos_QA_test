@@ -13,7 +13,6 @@ Feature: Account
     And User click "Compare Departments" button
     Then User should see same amount of My Compare List card
 
-
   Scenario: User should be able to save the given informations
     When User should fill out the mandatory areas
     Then User click Save button

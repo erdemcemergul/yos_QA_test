@@ -5,7 +5,6 @@ Feature: Sign Up
     Given User is on the app
     Given User click "Sign Up" button
 
-
   Scenario:Verify that the user can go to Sign In page click the Sıgn In
     When User can switch to Sign In page
     Then User should go to "Sign In" page

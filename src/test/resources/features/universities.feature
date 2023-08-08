@@ -5,7 +5,6 @@ Feature: Universities
     Given User is already logged in.
     Given User click "Universities" button
 
-
   Scenario: User can be able to see correct adress information from API for tr
    # When User select the Turkish language
     When User see the logo information
@@ -15,11 +14,6 @@ Feature: Universities
     And User see the adress information
     And User see the department information
     Then Information should be same with API from documentation for Turkish
-
-
-
-
-
 
   #Scenario: User can be able to see correct adress information from API for en
     #When User see the adress information

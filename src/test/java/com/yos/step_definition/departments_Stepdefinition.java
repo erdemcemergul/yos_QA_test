@@ -40,17 +40,6 @@ public class departments_Stepdefinition {
 
     }
 
-    @Then("list of {string} should come from API")
-    public void listOfShouldComeFromAPI(String arg0) {
-// Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-
-    }
-
-    @And("User select {string}")
-    public void userSelectFromDropdownMenu(String arg0) throws InterruptedException {
-
-    }
 
 
     @Then("Card of {string} name should come from API")

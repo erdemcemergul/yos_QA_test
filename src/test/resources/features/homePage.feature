@@ -3,7 +3,6 @@ Feature: Home Page Test Cases
   Background: User is on the Home Page
     Given User is on the app
 
-
   Scenario: User can enter "Universities" page
     When User click "Universities" button
     Then User should go to "Universities" page
@@ -16,17 +15,16 @@ Feature: Home Page Test Cases
     When User click "Home" button
     Then User should go to "Home" page
 
-
   Scenario: User can select the Departments
     When User click the "SelectCities" dropdown menu
     Then User should see available "city" list
-    And User select "city(ies)"
+    And User select city(ies)
     And User click the "SelectUniversities" dropdown menu
     Then User should see available "university" list
-    And User select "university(ies)"
+    And User select university(ies)
     And User click the "SelectDepartments" dropdown menu
+    And User select department(s)
     Then User should see available "department" list
-
 
   Scenario: User can see SignIn popup window by clicking "Sign In" button
     When User click "Sign In" button
@@ -36,14 +34,12 @@ Feature: Home Page Test Cases
     When User click "Sign Up" button
     Then User should go to "Sign Up" page
 
-
   Scenario: User can subscribe by clicking "Subscribe" button
     When User enter valid mail address
     Then User click Subscribe button
     #Then User should see "Successfully subscribed" alert
     Then User see warning of alert
     Then Email should come from API
-
 
   Scenario: User cannot navigate to pages without login
     When User click "myProfile" button
@@ -62,7 +58,6 @@ Feature: Home Page Test Cases
 #    Then User should go to "Contact" page
 #    When User click "Blog" button
 #    Then User should go to "Blog" page
-
 
   Scenario: User can change the language
 

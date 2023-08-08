@@ -6,10 +6,7 @@ Feature: Departments
     Given User click "Departments" button
     #Given User select the Turkish language
 
-
-
-
-  Scenario: User can see the selected informations of cards
+  Scenario: User can see the selected informations of card
     When User click the "SelectCities" dropdown menu
     And User select city(ies)
     And User click the "SelectUniversities" dropdown menu
@@ -33,8 +30,7 @@ Feature: Departments
     When User click "Favourite" button
     Then User should delete to Favourite
 
-
-  Scenario: User can not compare and favourite the cards with logout.
+  Scenario: User can not compare and favourite the cards with logout
     When User click "UserMenu" button
     When User click "Log Out" button
     When User click the "SelectCities" dropdown menu
